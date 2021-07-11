@@ -12,15 +12,21 @@ const percentValues = {
     'twentyfive':25,
     'fifty':50,
 }
+const billAmount = $('input-total');
 const getBillAmount = () => {
-    const n = document.getElementById('input-total').value;
+    const n = billAmount.value;
     return Number(n);
 };
+const setBillAmount = (v) => billAmount.value = v;
+
+const numberOfPeople = $('input-persons');
 const getNumberOfPeople = () => {
-    const n = document.getElementById('input-persons').value;
+    const n = numberOfPeople.value;
     console.log('Number of people:',n);
     return Number(n);
 };
+const setNumberOfPeople = (v) => numberOfPeople.value = v;
+
 function sumAmountPerPerson(peopleAmount,subTotal) {
     return subTotal / peopleAmount;
 }
@@ -97,3 +103,12 @@ function readCustom() {
 }
 customInput.addEventListener('click', customClick);
 customInput.addEventListener('keyup',readCustom);
+
+const resetButton = $('reset-button');
+
+function resetValues() {
+    setBillAmount('0.00');
+    setNumberOfPeople(1);
+}
+
+resetButton.addEventListener('click', resetValues);
