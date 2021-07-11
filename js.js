@@ -1,9 +1,8 @@
-'use strict';
-
 function $ (element,type='#') {
     if(type === '#')return document.getElementById(element);
     if(type === 'c') return document.getElementsByClassName(element);
 }
+
 const buttons = document.getElementById('buttons');
 const peopleInput = document.getElementById('input-persons');
 const percentValues = {
@@ -70,14 +69,23 @@ peopleInput.addEventListener('change', function() {
     updateTotalsToPay(getPercent());
     }
 )
-
+let lastButton ='';
+function changeLastButton() {
+    lastButton.classList.toggle('active');
+}
 buttons.addEventListener('click', event => {
+    if(lastButton != '' && lastButton != event.target) {
+        changeLastButton();
+    }
+    event.target.classList.toggle('active');
     setPercent(event);
     updateTotalsToPay(getPercent());
+    lastButton = event.target;
 })
 
 const customInput = $('customInput');
 function customClick() {
+    
     customInput.type = 'number';
 }
 

@@ -1,5 +1,13 @@
+:root {
+    --pblue: rgba(243,248,251);
+    --tealblue: rgb(5,69,76);
+    --lightteal: rgb(39,193,171);
+    --lightblue: rgb(195,227,227);
+    --activeblue: rgb(195,227,227);
+}
+
 body {
-    background-color: lightcyan;
+    background-color: var(--lightblue);
 }
 
 .container {
@@ -27,6 +35,7 @@ body {
     grid-row-gap: 10px;
     grid-column-gap: 10px;
     cursor: pointer;
+    
 }
 /* DIVS */
 .bill {
@@ -37,9 +46,10 @@ body {
 }
 .inputs {
     padding: 5px;
+    
 }
 .results {
-    background-color: teal;
+    background-color: var(--tealblue);
     border:none;
     padding:25px;
     
@@ -47,22 +57,39 @@ body {
 .reset {
     text-align: center;
 }
+
 /* BUTTONS */
+.active {
+    background-color: var(--lightteal)!important;
+}
+.inactive {
+    background-color: var(--tealblue);
+}
 .button {
-    background-color: teal;
+    background-color: var(--tealblue);
     text-align: center;
     padding: 10px;    
     border-radius: 5px;
     font-weight: 700;
     font-size: 1.3em;
+    border: none;
+    color: var(--pblue);
 }
 .button:active {
     transform: translateY(4px);
     transition-duration: 0.2s;
 }
 .button:hover {
-    background-color: darkcyan;
+    background-color: var(--lightteal);
     transition-duration: 0.2s;
+    color: var(--tealblue);
+}
+#customInput {
+    width: 100%;
+    background-color: var(--pblue);
+    border: none;
+    cursor: pointer;
+    color: var(--tealblue);
 }
 #reset-button {
     border: none;
@@ -71,11 +98,13 @@ body {
     width: 250px;
     font-size: 1.3em;
     font-weight: 700;
+    background-color: var(--lightteal);
+    
 }
 #reset-button:hover {
     transition-duration: 0.4s;
     background-color: teal;
-    color: white;
+    color: var(--lightteal);
     cursor: pointer;
 }
 #reset-button:active {
@@ -90,10 +119,11 @@ body {
     width:100%;
     height: 35px;
     border:none;
-    background-color: teal;
+    background-color: var(--pblue);
     text-align: right;
     font-weight: 700;
     font-size: 1.3em;
+
 }
 
 /* TEXT */
