@@ -1,0 +1,60 @@
+<head>
+<link rel='stylesheet' href='style.css'>
+</head>
+<body>
+    <div class="container">
+        <div class="bill">
+            <h4>Bill</h4>
+            <h4>Total Amount</h4>
+            <div class="inputs">
+                
+                <p>
+                    <input class="input-box"id="input-total"type="number"value="0.00"step="0.01">
+                </p>
+            </div>
+            <div class="buttons"id="buttons">
+                <div class='button'percent="five"id="5pc">5%</div>
+                <div class='button'percent="ten">10%</div>
+                <div class='button'percent="fifteen">15%</div>
+                <div class='button'percent="twentyfive">25%</div>
+                <div class='button'percent="fifty">50%</div>
+                <input class='button'percent="custom"id="customInput"value="Custom"><span id="display"></span></div>
+            </div>
+            <div class="inputs">
+                <h4>Number of People:</h4>
+                <p>
+                    <input class="input-box"id="input-persons"type="number"value="1">
+                </p>
+            </div>
+        </div>
+        <div class="results">
+            <h4>Totals</h4>
+            <div class="totals-grid">
+                <div class="totals-figures">
+                    <p>Total tip</br>
+                    /person</p>
+                </div>
+                <div id="tip-total">
+                £ <span id="tip-amount">0</span>
+                </div>
+                <div class="totals-figures">
+                    <p>Total amount</br>
+                    /person</p>
+                </div>
+                
+                <div id="amount-total">
+                £ <span id="amount-amount">0</span>
+                </div>
+            </div>
+            <div class="reset">
+                <button id="reset-button">Reset</button>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script src="js.js"></script>
+</body>
+
+
