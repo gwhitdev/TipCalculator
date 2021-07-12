@@ -109,7 +109,7 @@ body {
     color: var(--tealblue);
 }
 #customInput {
-    width: 100%;
+    width: 90%;
     background-color: var(--pblue);
     border: none;
     cursor: pointer;
@@ -225,7 +225,9 @@ body {
         width: 5%;
         
     }
-    
+    #customInput {
+        width: 83%;
+    }
     .buttons {
         grid-template-rows: repeat(2,1fr);
         grid-template-columns: repeat(3,1fr);
