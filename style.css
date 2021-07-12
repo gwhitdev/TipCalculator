@@ -9,6 +9,7 @@
 
 body {
     background-color: var(--lightblue);
+    font-family: 'Space Mono', monospace;
 }
 
 .logo {
@@ -31,7 +32,15 @@ body {
     margin: 0;
     width: 100%;
 }
-
+#error-text {
+    float: right;
+    color: darkred;
+    visibility: hidden;
+}
+.error {
+    outline-color: darkred!important;
+    
+}
 /* GRIDS */
 .totals-grid {
     display: grid;
@@ -59,7 +68,6 @@ body {
 }
 .inputs {
     padding: 5px;
-    
 }
 .results {
     background-color: var(--tealblue);
@@ -106,10 +114,15 @@ body {
     border: none;
     cursor: pointer;
     color: var(--tealblue);
+    font-family: 'Space Mono', monospace;
 }
 #customInput.active {
     color: var(--tealblue)!important;
     background-color: var(--pblue)!important;
+}
+.reset-active {
+    opacity: 1!important;
+    
 }
 #reset-button {
     border: none;
@@ -118,7 +131,9 @@ body {
     width: 100%;
     font-size: 1.3em;
     font-weight: 700;
+    font-family: 'Space Mono', monospace;
     background-color: var(--lightteal);
+    opacity: 0.3;
     
 }
 #reset-button:hover {
@@ -126,6 +141,7 @@ body {
     background-color: var(--lightblue);
     color: var(--tealblue);
     cursor: pointer;
+    opacity: 1;
 }
 #reset-button:active {
     background-color: white;
@@ -145,6 +161,14 @@ body {
     font-size: 1.3em;
     color: var(--tealblue);
     margin-top: -10px;
+    font-family: 'Space Mono', monospace;
+}
+.input-box:focus {
+    outline-color: var(--lightteal);    
+
+}
+.input-box:hover {
+    cursor: pointer;
 }
 #input-total {
     background-image: url('./images/icon-dollar.svg');

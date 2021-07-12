@@ -7,7 +7,7 @@ const numberOfPeople = $('input-persons');
 const displayTipPerPerson = $('tip-amount');
 const displayAmountPerPerson = $('amount-amount');
 const resetButton = $('reset-button');
-
+const errorText = $('error-text');
 let percent = 0;
 let lastButton = '';
 
@@ -92,6 +92,7 @@ function readCustom() {
 function resetButtons() {
     lastButton.classList.toggle('active');
     lastButton = '';
+    
 }
 function resetDisplays() {
     displayAmountPerPerson.innerText = '0.00';
@@ -105,9 +106,28 @@ function changeLastButton() {
     if(lastButton.attributes.id) resetCustom();
     lastButton.classList.toggle('active');
 }
+function activateReset() {
+    resetButton.classList.add('reset-active');
+}
+function deactivateReset() {
+    resetButton.classList.remove('reset-active');
+}
+function personInputValidation() {
+    const num = getNumberOfPeople();
+    while (num === 0) {
+        peopleInput.classList.add('error');
+        errorText.style.visibility = 'visible';
+        return false;
+    }
+    peopleInput.classList.remove('error');
+    errorText.style.visibility = 'hidden';
+    return true;
+}      
+
 // EVENTS
 buttons.addEventListener('click', event => {
     if(event.target.attributes.percent) {
+        activateReset(); 
         if(lastButton != '' && lastButton != event.target) changeLastButton();
         event.target.classList.toggle('active');
         setPercent(event);
@@ -115,11 +135,18 @@ buttons.addEventListener('click', event => {
         lastButton = event.target;
 }});
 
-peopleInput.addEventListener('change', () => updateTotalsToPay(getPercent()));
+peopleInput.addEventListener('change', () => {
+    if(personInputValidation() === true ) {
+        updateTotalsToPay(getPercent());
+    }
+    resetDisplays();
+});
+
 customInput.addEventListener('click', customClick);
 customInput.addEventListener('keyup', readCustom);
 resetButton.addEventListener('click', () => {
     resetValues();
+    deactivateReset();
     resetButtons();
     resetDisplays();
     resetCustom();
