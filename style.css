@@ -13,7 +13,7 @@ body {
 }
 
 .logo {
-    margin-top: 10%;
+    margin-top: 15%;
     margin-bottom: 25px;
 }
 .logo > img {
@@ -203,7 +203,6 @@ body {
 .currency {
     font-size: 1em;
     align-self: center;
-    margin-right: -10px;
     
 }
 #amount-amount {
@@ -216,11 +215,11 @@ body {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
         width: 60%;
-        margin: 0 auto;
+        margin: 40px auto;
     }
 
     .logo {
-        margin-top: 5%;
+        margin-top: 7%;
     }
     .logo > img {
         width: 5%;
