@@ -35,7 +35,7 @@ const getPercent = () => {
     return tempPercent;
 };
 const setPercent = (event) => percent = percentValues[event.target.attributes.percent.value];
-
+const setPercentToDefault = () => percent = 0;
 // ACTIONS
 function sumAmountPerPerson(peopleAmount,subTotal) {
     return subTotal / peopleAmount;
@@ -89,8 +89,12 @@ function readCustom() {
     updateTotalsToPay(percent);
 }
 function resetButtons() {
-    lastButton.classList.toggle('active');
-    lastButton = '';   
+    const btns = Array.from(buttons.childNodes);
+    btns.forEach(button => {
+        if(button.classList) {
+            button.classList.remove('active');
+        }
+    });
 }
 function resetDisplays() {
     displayAmountPerPerson.innerText = '0.00';
@@ -99,10 +103,6 @@ function resetDisplays() {
 function resetCustom() {
     customInput.type = 'text';
     customInput.value = 'Custom';
-}
-function changeLastButton() {
-    if(lastButton.attributes.id) resetCustom();
-    lastButton.classList.toggle('active');
 }
 function activateReset() {
     resetButton.classList.add('reset-active');
@@ -124,14 +124,12 @@ function personInputValidation() {
 
 // EVENTS
 buttons.addEventListener('click', event => {
-    if(event.target.attributes.percent) {
-        activateReset(); 
-        if(lastButton != '' && lastButton != event.target) changeLastButton();
-        event.target.classList.toggle('active');
+        resetButtons();
+        activateReset();
         setPercent(event);
         updateTotalsToPay(getPercent());
-        lastButton = event.target;
-}});
+        event.target.classList.add('active');
+});
 
 peopleInput.addEventListener('change', () => {
     if(personInputValidation() === true ) {
@@ -142,9 +140,16 @@ peopleInput.addEventListener('change', () => {
     }
 });
 
+billAmount.addEventListener('keyup', () => {
+    activateReset();
+    updateTotalsToPay(getPercent())
+    }
+);
+
 customInput.addEventListener('click', customClick);
 customInput.addEventListener('keyup', readCustom);
-resetButton.addEventListener('click', () => {
+resetButton.addEventListener('click', (event) => {
+    setPercentToDefault();
     resetValues();
     deactivateReset();
     resetButtons();
