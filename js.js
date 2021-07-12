@@ -50,10 +50,10 @@ function tipPerPerson(tipAmount, peopleAmount) {
     return tipAmount / peopleAmount;
 }
 function changeTipPerPerson(tip) {
-    displayTipPerPerson.innerText = tip;
+    return tip.toFixed(2);
 }
-function changeAmountPerPerson(amount) {
-    displayAmountPerPerson.innerText = amount;
+function changeAmountPerPerson(total) {
+    return total.toFixed(2);
 }
 function updateTotalsToPay(percent) {
     console.log(percent);
@@ -61,8 +61,8 @@ function updateTotalsToPay(percent) {
     const total = sumTotal(getBillAmount(),tipAmount);
     const amountPerPerson = sumAmountPerPerson(getNumberOfPeople(),total);
     const tipEachPerson = tipPerPerson(tipAmount,getNumberOfPeople());
-    changeTipPerPerson(tipEachPerson);
-    changeAmountPerPerson(amountPerPerson);
+    displayTipPerPerson.innerText = changeTipPerPerson(tipEachPerson);
+    displayAmountPerPerson.innerText = changeAmountPerPerson(amountPerPerson);
 }
 function resetValues() {
     setBillAmount('0.00');
@@ -78,7 +78,6 @@ function makeCustomText () {
     if(customInput.value != 'Custom') resetCustom();
     customInput.value = '';
 }
-
 function customClick() {
     if (customInput.type === 'text') makeCustomNum();
     if (customInput.type === 'number') makeCustomText();
@@ -91,8 +90,7 @@ function readCustom() {
 }
 function resetButtons() {
     lastButton.classList.toggle('active');
-    lastButton = '';
-    
+    lastButton = '';   
 }
 function resetDisplays() {
     displayAmountPerPerson.innerText = '0.00';
@@ -139,7 +137,9 @@ peopleInput.addEventListener('change', () => {
     if(personInputValidation() === true ) {
         updateTotalsToPay(getPercent());
     }
-    resetDisplays();
+    if(personInputValidation() === false) {
+        resetDisplays();
+    }
 });
 
 customInput.addEventListener('click', customClick);
