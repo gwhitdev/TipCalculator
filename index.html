@@ -1,63 +1,70 @@
-<head>
-<link rel='stylesheet' href='style.css'>
-</head>
-<body>
-    <div class="logo">
-        <img src="images/logo.svg">
-    </div>
-
-    <div class="container">
-    
-        <div class="bill">
-            <div class="inputs">
-            <h4><label for="input-total">Bill</label></h4>
-                <input class="input-box"id="input-total"type="number"value="0.00"step="0.01">
-            </div>
-            
-            <h4>Select Tip %</h4>
-            <div class="buttons"id="buttons">
-                <button class='button'percent="five">5%</button>
-                <button class='button'percent="ten">10%</button>
-                <button class='button'percent="fifteen">15%</button>
-                <button class='button'percent="twentyfive">25%</button>
-                <button class='button'percent="fifty">50%</button>
-                <input class='button'percent="custom"id="customInput"value="Custom"><span id="display"></span>
-            </div>
-            
-            <div class="inputs">
-                <h4><label for="input-persons">Number of People</label>  <span id="error-text">Can't be zero</span></h4>
-                <p>
-                    <input class="input-box"id="input-persons"type="number"value="1"min="1">
-                </p>
-            </div>
+<html lang='en'>
+    <head>
+    <link rel='stylesheet' href='style.css'>
+    <title>Tip Calculator</title>
+    </head>
+    <body>
+        <logo>
+        <div class="logo">
+            <img src="images/logo.svg"alt="Logo">    
         </div>
-        <div class="results">
-            <div class="totals-grid">
-                <div>
-                    <p><span class="total-text">Tip amount</span></br>
-                    <span class="total-person">/ person</span></p>
-                </div>
-                <div class="total-figures">
-                <span class="currency">$</span><span class="total-amount"id="tip-amount">0.00</span>
-                </div>
-                <div id="amount-text">
-                    <p><span class="total-text">Total</span></br>
-                    <span class="total-person">/ person</span></p>
+        </logo>
+        <main>
+        <div class="container">
+            <bill>
+            <div class="bill">
+                <div class="inputs">
+                <h4><label for="input-total">Bill</label></h4>
+                    <input class="input-box"id="input-total"type="number"value="0.00"step="0.01">
                 </div>
                 
-                <div class="total-figures">
-                <span class="currency">$</span><span id="amount-amount">0.00</span>
+                <h4>Select Tip %</h4>
+                <div class="buttons"id="buttons">
+                    <button class='button'percent="five">5%</button>
+                    <button class='button'percent="ten">10%</button>
+                    <button class='button'percent="fifteen">15%</button>
+                    <button class='button'percent="twentyfive">25%</button>
+                    <button class='button'percent="fifty">50%</button>
+                    <input class='button'percent="custom"id="customInput"value="Custom"><span id="display"><label for="customInput"hidden></span>
+                </div>
+                
+                <div class="inputs">
+                    <h4><label for="input-persons">Number of People</label>  <span id="error-text">Can't be zero</span></h4>
+                    <p>
+                        <input class="input-box"id="input-persons"type="number"value="1"min="1">
+                    </p>
                 </div>
             </div>
-            <div class="reset">
-                <button id="reset-button">RESET</button>
+            </bill>
+            <results>
+            <div class="results">
+                <div class="totals-grid">
+                    <div>
+                        <p><span class="total-text">Tip amount</span></br>
+                        <span class="total-person">/ person</span></p>
+                    </div>
+                    <div class="total-figures">
+                    <span class="currency">$</span><span class="total-amount"id="tip-amount">0.00</span>
+                    </div>
+                    <div id="amount-text">
+                        <p><span class="total-text">Total</span></br>
+                        <span class="total-person">/ person</span></p>
+                    </div>
+                    
+                    <div class="total-figures">
+                    <span class="currency">$</span><span id="amount-amount">0.00</span>
+                    </div>
+                </div>
+                <div class="reset">
+                    <button id="reset-button">RESET</button>
+                </div>
+                
+                </div>
             </div>
-            
-            </div>
+            </results>
         </div>
-    </div>
-
-    <script type="module" src="js.js"></script>
-</body>
+        </main>
+        <script type="module" src="js.js"></script>
+    </body>
 
 
